@@ -17,7 +17,7 @@ export default ReactNative;
 
 const styles = StyleSheet.create({
   box: {
-    backgroundColor: "yellow",
+    backgroundColor: "gold",
     padding: 8,
     margin: 4,
   },

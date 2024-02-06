@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 
-import Gluestack from "./Gluestack";
 import ReactNative from "./ReactNative";
 import NativeBase from "./NativeBase";
-import Tamagui from "./Tamagui";
 import TimedRender from "../../components/TimedRender";
-import StyledComponents from "./styled-components";
+import GluestackComponent from "./Gluestack";
 
 function Example() {
   const [styleType, setStyleType] = useState(undefined);
@@ -19,28 +17,22 @@ function Example() {
     switch (styleType) {
       case "React Native":
         return <ReactNative />;
-      case "gluestack":
-        return <Gluestack />;
-      case "Tamagui":
-        return <Tamagui />;
-      case "NativeBase":
+      case "NativeBaseDS":
         return <NativeBase />;
-      case "Styled Components":
-        return <StyledComponents />;
+      case "GluestackDS":
+        return <GluestackComponent />;
       default:
         return null;
     }
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Tap a style library to start rendering</Text>
+      <Text style={styles.text}>Box Component: Tap a style library to start rendering</Text>
       <Button title="React Native" onPress={onStyleTypePress("React Native")} />
-      <Button title="gluestack" onPress={onStyleTypePress("gluestack")} />
-      <Button title="Tamagui" onPress={onStyleTypePress("Tamagui")} />
-      <Button title="NativeBase" onPress={onStyleTypePress("NativeBase")} />
+      <Button title="NativeBaseDS" onPress={onStyleTypePress("NativeBaseDS")} />
       <Button
-        title="Styled Components"
-        onPress={onStyleTypePress("Styled Components")}
+        title="GluestackDS"
+        onPress={onStyleTypePress("GluestackDS")}
       />
       {styleType ? (
         <TimedRender key={styleType}>
@@ -55,7 +47,7 @@ function Example() {
   );
 }
 
-export default function SimpleComponent() {
+export default function BoxComponent() {
   return <Example />;
 }
 

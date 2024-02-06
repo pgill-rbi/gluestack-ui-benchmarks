@@ -1,0 +1,38 @@
+diff --git a/node_modules/@gorhom/bottom-sheet/src/components/bottomSheet/BottomSheet.tsx b/node_modules/@gorhom/bottom-sheet/src/components/bottomSheet/BottomSheet.tsx
+index b166440..a65d68e 100644
+--- a/node_modules/@gorhom/bottom-sheet/src/components/bottomSheet/BottomSheet.tsx
++++ b/node_modules/@gorhom/bottom-sheet/src/components/bottomSheet/BottomSheet.tsx
+@@ -1284,15 +1284,31 @@ const BottomSheetComponent = forwardRef<BottomSheet, BottomSheetProps>(
+     useAnimatedReaction(
+       () => ({
+         snapPoints: animatedSnapPoints.value,
++        providedSnapPoints: ('value' in _providedSnapPoints
++          ? _providedSnapPoints.value
++          : _providedSnapPoints),
+         containerHeight: animatedContainerHeight.value,
++        keyboardInputMode: android_keyboardInputMode,
+       }),
+       (result, _previousResult) => {
+-        const { snapPoints, containerHeight } = result;
++        const { 
++          snapPoints,
++          providedSnapPoints,
++          containerHeight,
++          keyboardInputMode
++        } = result;
+         const _previousSnapPoints = _previousResult?.snapPoints;
+         const _previousContainerHeight = _previousResult?.containerHeight;
+ 
+         if (
+-          JSON.stringify(snapPoints) === JSON.stringify(_previousSnapPoints) ||
++          (JSON.stringify(snapPoints) === JSON.stringify(_previousSnapPoints) &&
++            Platform.OS !== "android") ||
++          // [THDSM-661]: Case to prevent Android sheet from reopening using 100% detent
++          // At 100% detent snap point does not change with keyboard resize
++          (JSON.stringify(snapPoints) === JSON.stringify(_previousSnapPoints) &&
++            Platform.OS === "android" &&
++            keyboardInputMode === KEYBOARD_INPUT_MODE.adjustResize &&
++            providedSnapPoints.indexOf("100%") === -1) ||
+           !isLayoutCalculated.value ||
+           !isAnimatedOnMount.value ||
+           containerHeight <= 0

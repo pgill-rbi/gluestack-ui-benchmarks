@@ -6,8 +6,8 @@ const HomeScreen = ({ navigation }) => {
     <View style={styles.container}>
       <Text style={styles.text}>Tap a suite to start measuring</Text>
       <Button
-        title="Simple component"
-        onPress={() => navigation.navigate("simple-component")}
+        title="Box component"
+        onPress={() => navigation.navigate("box-component")}
       />
       <Button
         title="Updating variants"

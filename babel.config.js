@@ -1,36 +1,16 @@
-process.env.TAMAGUI_TARGET = "native"; // Don't forget to specify your TAMAGUI_TARGET here
 const path = require("path");
-const myBabel = require("@gluestack-style/babel-plugin-styled-resolver");
 
 module.exports = function (api) {
-  api.cache(true);
+  api.cache(false);
   return {
-    presets: ["babel-preset-expo"],
+    presets: [
+      "babel-preset-expo",
+      ["@babel/preset-react", { runtime: "automatic" }],
+      "@babel/preset-typescript",
+    ],
     plugins: [
-      [
-        myBabel,
-        {
-          configPath: path.join(__dirname, "./gluestack-ui.config.ts"),
-          configThemePath: ["theme"],
-          styled: ["@gluestack-ui/themed"],
-          components: ["@gluestack-ui/themed"],
-        },
-      ],
-      [
-        "@tamagui/babel-plugin",
-        {
-          components: ["tamagui"],
-          config: "./tamagui.config.js",
-          logTimings: true,
-        },
-      ],
-      [
-        "transform-inline-environment-variables",
-        {
-          include: "TAMAGUI_TARGET",
-        },
-      ],
       "nativewind/babel",
+      "react-native-reanimated/plugin",
     ],
   };
 };
