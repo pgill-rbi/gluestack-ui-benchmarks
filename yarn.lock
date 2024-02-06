@@ -3727,10 +3727,10 @@
   dependencies:
     csstype "^2.5.7"
 
-"@tim-hortons-ventures/th-design-system@13.1.1--canary.9243d01.0":
-  version "13.1.1--canary.9243d01.0"
-  resolved "https://npm.pkg.github.com/download/@tim-hortons-ventures/th-design-system/13.1.1--canary.9243d01.0/5d8b4115edfce6dc0097d35fc716dccca82cd7af#5d8b4115edfce6dc0097d35fc716dccca82cd7af"
-  integrity sha512-xIXUPnW9YG6V5KUklx1gv2ib63EkEA9XT3oTnBhKICp2AC3R6BTe+9cEvUBmziiNXuaifXofNclvlcf4Q/SX1A==
+"@tim-hortons-ventures/th-design-system@13.1.1--canary.ff46417.0":
+  version "13.1.1--canary.ff46417.0"
+  resolved "https://npm.pkg.github.com/download/@tim-hortons-ventures/th-design-system/13.1.1--canary.ff46417.0/7215e542cfe50b2817585f998084de27adcbc275#7215e542cfe50b2817585f998084de27adcbc275"
+  integrity sha512-12E+P4LuY1Sf30SFf53UH+qZiSDanOJgWHY2YAgUYGymyezVv7KjYEeG7TBGdIn73+10ENE7ST1Ta2aPuVBZtw==
   dependencies:
     "@gluestack-style/react" "^1.0.18"
     "@gorhom/bottom-sheet" "4.4.4"

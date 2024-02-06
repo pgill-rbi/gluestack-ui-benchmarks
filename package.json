@@ -27,7 +27,7 @@
     "@tamagui/shorthands": "1.47.3",
     "@tamagui/theme-base": "1.47.3",
     "@tamagui/themes": "1.47.3",
-    "@tim-hortons-ventures/th-design-system": "13.1.1--canary.9243d01.0",
+    "@tim-hortons-ventures/th-design-system": "13.1.1--canary.ff46417.0",
     "@types/react": "18.2.17",
     "babel-plugin-transform-inline-environment-variables": "0.4.4",
     "dripsy": "4.3.3",

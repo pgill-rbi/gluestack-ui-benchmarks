@@ -1,10 +1,7 @@
 import NavigationProvider from "./navigation/NavigationProvider";
 import HomeScreen from "./HomeScreen";
 import {
-  ChangeVariants,
-  LayoutScreen,
   BoxComponent,
-  ComplexStyling,
 } from "./cases";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
@@ -50,27 +47,6 @@ export default function App() {
                   component={BoxComponent}
                   options={{
                     title: "Box component",
-                  }}
-                />
-                <Stack.Screen
-                  name="updating-variant"
-                  component={ChangeVariants}
-                  options={{
-                    title: "Updating variant",
-                  }}
-                />
-                <Stack.Screen
-                  name="theme-inline-styling"
-                  component={ComplexStyling}
-                  options={{
-                    title: "Theme and inline style",
-                  }}
-                />
-                <Stack.Screen
-                  name="layout-screen"
-                  component={LayoutScreen}
-                  options={{
-                    title: "Layout screen",
                   }}
                 />
               </Stack.Navigator>

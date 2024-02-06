@@ -38,6 +38,7 @@ function Example() {
       <Text style={styles.text}>
         Box Component: Tap a style library to start rendering, chart appears after all 3 rendered.
       </Text>
+      <RenderTimeBarChart renderTimes={renderTimes} />
       <Button title="React Native" onPress={onStyleTypePress("React Native")} />
       <Button title="NativeBaseDS" onPress={onStyleTypePress("NativeBaseDS")} />
       <Button title="GluestackDS" onPress={onStyleTypePress("GluestackDS")} />
@@ -51,7 +52,6 @@ function Example() {
           </Text>
         </TimedRender>
       ) : null}
-      <RenderTimeBarChart renderTimes={renderTimes} />
       {renderStyleLibrary()}
     </View>
   );

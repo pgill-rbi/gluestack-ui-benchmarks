@@ -9,18 +9,6 @@ const HomeScreen = ({ navigation }) => {
         title="Box component"
         onPress={() => navigation.navigate("box-component")}
       />
-      <Button
-        title="Updating variants"
-        onPress={() => navigation.navigate("updating-variant")}
-      />
-      <Button
-        title="Theme and inline style"
-        onPress={() => navigation.navigate("theme-inline-styling")}
-      />
-      <Button
-        title="Layout screen"
-        onPress={() => navigation.navigate("layout-screen")}
-      />
     </View>
   );
 };
