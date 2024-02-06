@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
-
+import RenderTimeBarChart from "../../components/BarChart";
 import ReactNative from "./ReactNative";
 import NativeBase from "./NativeBase";
 import TimedRender from "../../components/TimedRender";
@@ -8,9 +8,17 @@ import GluestackComponent from "./Gluestack";
 
 function Example() {
   const [styleType, setStyleType] = useState(undefined);
+  const [renderTimes, setRenderTimes] = useState({});
 
   const onStyleTypePress = (curry: any) => () => {
     setStyleType(curry);
+  };
+
+  const handleTimeCalculated = (time, type) => {
+    setRenderTimes((prevTimes) => ({
+      ...prevTimes,
+      [type]: time,
+    }));
   };
 
   const renderStyleLibrary = () => {
@@ -27,21 +35,23 @@ function Example() {
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Box Component: Tap a style library to start rendering</Text>
+      <Text style={styles.text}>
+        Box Component: Tap a style library to start rendering, chart appears after all 3 rendered.
+      </Text>
       <Button title="React Native" onPress={onStyleTypePress("React Native")} />
       <Button title="NativeBaseDS" onPress={onStyleTypePress("NativeBaseDS")} />
-      <Button
-        title="GluestackDS"
-        onPress={onStyleTypePress("GluestackDS")}
-      />
+      <Button title="GluestackDS" onPress={onStyleTypePress("GluestackDS")} />
       {styleType ? (
-        <TimedRender key={styleType}>
+        <TimedRender
+          key={styleType}
+          onTimeCalculated={(time) => handleTimeCalculated(time, styleType)}
+        >
           <Text style={styles.text}>
             Rendering with <Text style={styles.bold}>{styleType}</Text>
           </Text>
         </TimedRender>
       ) : null}
-
+      <RenderTimeBarChart renderTimes={renderTimes} />
       {renderStyleLibrary()}
     </View>
   );
@@ -58,6 +68,8 @@ const styles = StyleSheet.create({
   },
   text: {
     marginVertical: 12,
+    textAlign: "center",
+    marginHorizontal: 4,
   },
   bold: {
     fontWeight: "bold",

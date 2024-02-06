@@ -9,7 +9,9 @@ function TimedRender(props) {
   const [end, setEnd] = useState(0);
 
   useLayoutEffect(() => {
-    setEnd(Date.now());
+    const timing = Date.now();
+    setEnd(timing);
+    props.onTimeCalculated(timing - start);
   }, []);
 
   return (
